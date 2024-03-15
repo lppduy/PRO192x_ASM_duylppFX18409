@@ -1,44 +1,29 @@
-package vn.funix.FX18409.java.asm01;
+package vn.funix.FX18409.java.asm01.service;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import static vn.funix.FX18409.java.asm01.AuthenticationService.authenticate;
-
-public class Asm01Service {
-
+public class UserInterfaceService {
+    private static final String AUTHOR = "FX18409";
+    private static final String VERSION = "1.0.0";
     private static Scanner sc = new Scanner(System.in);
 
-    public void run() {
 
-        this.displayMenu();
-        int choice = this.getValidatedChoice();
-
-        if (choice == 1) {
-            this.getCCCDFunction();
-        }  else {
-            System.out.println("Thoat chuong trinh");
-            System.out.println("Cam on ban da su dung dich vu cua chung toi");
-            sc.close();
-        }
-
+    public int displayMenuAndGetChoice() {
+        displayMenu();
+        return getValidatedChoice();
     }
 
-    private void getCCCDFunction() {
-        authenticate();
-        System.out.println("Passed authentication");
-    }
-
-    private void displayMenu() {
+    public void displayMenu() {
         System.out.println("+----------+--------------------+----------+");
-        System.out.println("| NGAN HANG SO | FX18409@v1.0.0            |");
+        System.out.println("| NGAN HANG SO | " + AUTHOR + "@" + VERSION + " |");
         System.out.println("+----------+--------------------+----------+");
         System.out.println("| 1. Nhap CCCD                             |");
         System.out.println("| 0. Thoat                                 |");
         System.out.println("+----------+--------------------+----------+");
     }
 
-    private int getValidatedChoice() {
+    public int getValidatedChoice() {
 
         int choice;
         do {

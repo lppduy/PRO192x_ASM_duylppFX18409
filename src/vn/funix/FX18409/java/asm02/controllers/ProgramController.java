@@ -1,15 +1,12 @@
 package vn.funix.FX18409.java.asm02.controllers;
 
-import vn.funix.FX18409.java.asm02.services.AuthenticationService;
-import vn.funix.FX18409.java.asm02.services.CitizenIdService;
+import vn.funix.FX18409.java.asm02.services.CustomerService;
 import vn.funix.FX18409.java.asm02.services.UserInterfaceService;
 
 public class ProgramController {
 
-    private UserInterfaceService userInterfaceService = new UserInterfaceService();
-    private AuthenticationService authenticationService = new AuthenticationService();
-    private CitizenIdService citizenIdService = new CitizenIdService();
-
+    private final UserInterfaceService userInterfaceService = new UserInterfaceService();
+    private final CustomerService customerService = new CustomerService();
     // This method runs the program
     public void run() {
         int choice = userInterfaceService.displayMenuAndGetChoice();
@@ -19,7 +16,7 @@ public class ProgramController {
     private void handleChoice(int choice) {
         switch (choice) {
             case 1:
-                System.out.println("Chuc nang 1");
+                customerService.addCustomer();
                 break;
             case 2:
                 System.out.println("Chuc nang 2");

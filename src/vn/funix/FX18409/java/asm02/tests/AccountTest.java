@@ -12,4 +12,5 @@ public class AccountTest {
         System.out.println(account.toString());
         System.out.println("Is this a premium account? " + (account.isPremiumAccount() ? "Yes" : "No"));
     }
+
 }

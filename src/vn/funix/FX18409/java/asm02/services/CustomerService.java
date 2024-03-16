@@ -38,4 +38,16 @@ public class CustomerService {
         System.out.println("Da them khach hang " + customerId + " vao danh sach");
     }
 
+    public void displayCustomers() {
+        System.out.println("displayCustomers");
+    }
+
+    public void findCustomerByCitizenId() {
+        System.out.println("findCustomerByCitizenId");
+    }
+
+    public void findCustomerByName() {
+        System.out.println("findCustomerByName");
+    }
+
 }

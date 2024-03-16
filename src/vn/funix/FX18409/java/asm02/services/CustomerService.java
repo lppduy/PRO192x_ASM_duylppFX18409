@@ -10,8 +10,10 @@ public class CustomerService {
         Scanner sc = new Scanner(System.in);
 
         // Enter customer name and customerId
+
         System.out.println("Nhap ten khach hang: ");
         String customerName = sc.next();
+
         System.out.println("Nhap so CCCD: ");
         String customerId = sc.next();
 

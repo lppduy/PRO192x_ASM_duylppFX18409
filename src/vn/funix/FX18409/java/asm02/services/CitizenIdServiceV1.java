@@ -5,7 +5,7 @@ import vn.funix.FX18409.java.asm01.model.BirthPlace;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class CitizenIdServiceV1 extends CitizenIdService {
+public class CitizenIdServiceV1 extends CitizenIdService { //  This class is for ASM01
 
     public void processCitizenId() {
         String citizenId = getValidCitizenId();

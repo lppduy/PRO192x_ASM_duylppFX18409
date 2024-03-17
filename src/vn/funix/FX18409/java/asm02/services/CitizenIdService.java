@@ -36,7 +36,7 @@ public class CitizenIdService {  //  This class is for ASM02
         return citizenId;
     }
 
-    private boolean validateCitizenId(String citizenId) {
+    public boolean validateCitizenId(String citizenId) {
         return validateIdFormat(citizenId) &&
                 validateBirthplace(citizenId) &&
                 validateAgeAndGender(citizenId) &&

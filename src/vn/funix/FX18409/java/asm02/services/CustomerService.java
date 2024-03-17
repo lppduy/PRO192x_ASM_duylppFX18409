@@ -33,7 +33,43 @@ public class CustomerService {
     }
 
     public void findCustomerByCitizenId() {
-        System.out.println("findCustomerByCitizenId");
+        String customerId = setCustomerId();
+        if (customerId != null) {
+            displayCustomerByCitizenId(customerId);
+        }
+    }
+
+    private String setCustomerId() {
+        Scanner sc = new Scanner(System.in);
+        String customerId = null;
+
+        while (true) {
+            try {
+                System.out.println("+----------+--------------------+----------+");
+                System.out.println("Nhap CCCD khach hang can tim (12 ky tu): ");
+                customerId = sc.next();
+
+                if (citizenIdService.validateCitizenId(customerId) && bank.isCustomerExisted(customerId)) {
+                    break;
+                } else {
+                    System.out.println("CCCD chua chinh xac hoac khong ton tai vui long nhap lai (12 ky tu): ");
+                }
+            } catch (Exception e) {
+                System.out.println("Co loi xay ra. Vui long thu lai.");
+            }
+        }
+
+        return customerId;
+    }
+
+    private  void displayCustomerByCitizenId(String customerId) {
+        for (int i = 0; i < bank.getCustomers().size(); i++) {
+            if (customerId.equals(bank.getCustomers().get(i).getCustomerId())) {
+                System.out.println("+----------+--------------------+----------+-----------------+");
+                bank.getCustomers().get(i).displayInformation();
+            }
+        }
+        System.out.println("+----------+--------------------+----------+-----------------+");
     }
 
     public void findCustomerByName() {

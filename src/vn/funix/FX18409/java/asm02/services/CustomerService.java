@@ -2,6 +2,8 @@ package vn.funix.FX18409.java.asm02.services;
 
 import vn.funix.FX18409.java.asm02.models.Customer;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import static vn.funix.FX18409.java.asm02.Asm02.bank;
@@ -73,8 +75,35 @@ public class CustomerService {
     }
 
     public void findCustomerByName() {
-        System.out.println("findCustomerByName");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("+----------+--------------------+----------+");
+
+        // Enter customerName
+        System.out.println("Nhap ten khach hang can tim: ");
+        String customerName = sc.next();
+
+        // searchCustomerByName
+        List<Customer> matchedCustomers = findCustomersByName(customerName);
+
+        if (matchedCustomers.isEmpty()) {
+            System.out.println("Khong tim thay khach hang co ten : " + customerName);
+        } else {
+            for (Customer customer : matchedCustomers) {
+                customer.displayInformation();
+            }
+        }
+
+        System.out.println("+----------+--------------------+----------+-----------------+");
     }
 
+    private List<Customer> findCustomersByName(String customerName) {
+        List<Customer> matchedCustomers = new ArrayList<>();
+        for (Customer customer : bank.getCustomers()) {
+            if (customer.getName().toLowerCase().contains(customerName.toLowerCase())) {
+                matchedCustomers.add(customer);
+            }
+        }
+        return matchedCustomers;
+    }
 
 }

@@ -1,7 +1,12 @@
 package vn.funix.FX18409.java.asm02.models;
 
+import vn.funix.FX18409.java.asm02.utils.CurrencyFormatter;
+
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Customer extends User {
     private List<Account> accounts;
@@ -46,9 +51,10 @@ public class Customer extends User {
     }
 
     public void displayInformation() {
-        System.out.printf("%-15s | %-15s | %-10s | %-15s\n", getCustomerId(), getName(), (isPremiumAccount() ? "Premium" : "Normal"), String.format("%,d", (long) getBalance()) + "₫");
+        System.out.printf("%-15s | %-15s | %-10s | %-15s\n", getCustomerId(), getName(), (isPremiumAccount() ? "Premium" : "Normal"), CurrencyFormatter.format(getBalance()));
         for (int i = 0; i < accounts.size(); i++) {
-            System.out.printf("%-7s %-7s | %-15s   %-10s   %-15s\n", (i + 1) , accounts.get(i).getAccountNumber(), "", "", String.format("%,d", (long) accounts.get(i).getBalance()) + "₫");
+            System.out.printf("%-7s %-7s | %-15s   %-10s   %-15s\n", (i + 1) , accounts.get(i).getAccountNumber(), "", "", CurrencyFormatter.format(accounts.get(i).getBalance()));
         }
     }
+
 }

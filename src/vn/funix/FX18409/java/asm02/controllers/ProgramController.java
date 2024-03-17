@@ -9,7 +9,7 @@ public class ProgramController {
     private final UserInterfaceService userInterfaceService = new UserInterfaceService();
     private final CustomerService customerService = new CustomerService();
     private final BankService bankService = new BankService();
-    // This method runs the program
+
     public void run() {
         int choice = userInterfaceService.displayMenuAndGetChoice();
         handleChoice(choice);

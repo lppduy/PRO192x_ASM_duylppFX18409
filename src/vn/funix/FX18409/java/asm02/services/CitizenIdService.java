@@ -27,7 +27,7 @@ public class CitizenIdService {  //  This class is for ASM02
             if (!validateCitizenId(citizenId)) {
                 System.out.println("So CCCD khong hop le.");
                 System.out.println("Vui long nhap lai hoac nhap 'No' de thoat:");
-                if ("No".equalsIgnoreCase(citizenId)) return null;
+                if ("No".equalsIgnoreCase(citizenId))  System.exit(0);
             } else {
                 break;
             }

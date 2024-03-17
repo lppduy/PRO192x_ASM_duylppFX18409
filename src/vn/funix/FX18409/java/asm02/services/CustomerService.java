@@ -25,7 +25,11 @@ public class CustomerService {
     }
 
     public void displayCustomers() {
-        System.out.println("displayCustomers");
+        System.out.println("+----------+--------------------+----------+-----------------+");
+        for (int i = 0; i < bank.getCustomers().size(); i++) {
+            bank.getCustomers().get(i).displayInformation();
+            System.out.println("+----------+--------------------+----------+-----------------+");
+        }
     }
 
     public void findCustomerByCitizenId() {

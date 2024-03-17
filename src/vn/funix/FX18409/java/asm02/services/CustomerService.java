@@ -34,7 +34,7 @@ public class CustomerService {
         }
     }
 
-    public void findCustomerByCitizenId() {
+    public void findCustomerByCitizenId() { // searchCustomerByCCCD
         String customerId = setCustomerId();
         if (customerId != null) {
             displayCustomerByCitizenId(customerId);

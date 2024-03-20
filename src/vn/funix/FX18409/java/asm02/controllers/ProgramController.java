@@ -20,10 +20,10 @@ public class ProgramController {
     private void handleChoice(int choice) {
         switch (choice) {
             case 1:
-                customerService.addCustomer(); // TODO: Add feature 'add Account' for new customer
+                customerService.addCustomer();
                 break;
             case 2:
-                bankService.addAccountForCustomer(); // TODO: handle 2 separate case: new and existing customer
+                bankService.addAccountForCustomer();
                 break;
             case 3:
                 customerService.displayCustomers();

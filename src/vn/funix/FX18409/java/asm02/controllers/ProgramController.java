@@ -11,17 +11,19 @@ public class ProgramController {
     private final BankService bankService = new BankService();
 
     public void run() {
-        int choice = userInterfaceService.displayMenuAndGetChoice();
-        handleChoice(choice);
+        while (true) {
+            int choice = userInterfaceService.displayMenuAndGetChoice();
+            handleChoice(choice);
+        }
     }
 
     private void handleChoice(int choice) {
         switch (choice) {
             case 1:
-                customerService.addCustomer();
+                customerService.addCustomer(); // TODO: Add feature 'add Account' for new customer
                 break;
             case 2:
-                bankService.addAccountForCustomer();
+                bankService.addAccountForCustomer(); // TODO: handle 2 separate case: new and existing customer
                 break;
             case 3:
                 customerService.displayCustomers();
@@ -34,7 +36,7 @@ public class ProgramController {
                 break;
             case 0:
                 System.out.println("Cam on ban da su dung dich vu cua chung toi!");
-                break;
+                System.exit(0);
         }
     }
 
